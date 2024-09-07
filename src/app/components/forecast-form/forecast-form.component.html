@@ -1,1 +1,11 @@
-<p>forecast-form works!</p>
+<form [formGroup]="form">
+    <label for="city">Wyszukaj miasto:</label>
+    <input type="text" id="city" placeholder="Twoje miasto..." formControlName="city">
+    <label for="number_of_days">Ilość dni prognozy:</label>
+    <select name="number_of_days" id="number_of_days" formControlName="number_of_days">
+        <option value="3">3 dniowa</option>
+        <option value="7">7 dniowa</option>
+        <option value="10">10 dniowa</option>
+    </select>
+    <button type="button" (click)="submit()">Wyszukaj</button>
+</form>
