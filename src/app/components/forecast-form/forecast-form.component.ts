@@ -11,7 +11,7 @@ import { HomeComponentService } from '../../../services/home/home.component.serv
 })
 export class ForecastFormComponent {
   formBuilder = inject(FormBuilder);
-
+  errorMessage = '';
   constructor(private HomeComponentService: HomeComponentService) {}
 
   form = this.formBuilder.group({
@@ -37,8 +37,17 @@ export class ForecastFormComponent {
         city,
         number_of_days
       ).subscribe({
-        next: (response) => {},
-        error: (err) => {},
+        next: (response) => {
+          console.log(response);
+        },
+        error: (err) => {
+          if (err.error.error.code === 1006) {
+            console.error(err);
+            this.errorMessage = 'Nie znaleziono Twojego miasta!';
+          } else {
+            this.errorMessage = 'Wystąpił błąd, spróbuj ponownie.';
+          }
+        },
         complete: () => {},
       });
     }
