@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponentService } from '../../../services/home/home.component.service';
 
 @Component({
   selector: 'app-forecast-form',
@@ -10,6 +11,9 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class ForecastFormComponent {
   formBuilder = inject(FormBuilder);
+
+  constructor(private HomeComponentService: HomeComponentService) {}
+
   form = this.formBuilder.group({
     city: [''],
     number_of_days: [3],
@@ -21,5 +25,22 @@ export class ForecastFormComponent {
       number_of_days = +number_of_days;
     }
     console.log(city, number_of_days);
+  }
+
+  processWeatherForecastData() {
+    let { city, number_of_days } = this.form.value;
+    if (number_of_days) {
+      number_of_days = +number_of_days;
+    }
+    if (city && number_of_days) {
+      this.HomeComponentService.getForecastByCity(
+        city,
+        number_of_days
+      ).subscribe({
+        next: (response) => {},
+        error: (err) => {},
+        complete: () => {},
+      });
+    }
   }
 }
