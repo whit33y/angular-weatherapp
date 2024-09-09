@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponentService } from '../../../services/home/home.component.service';
 
@@ -19,6 +19,8 @@ export class ForecastFormComponent {
     number_of_days: [3],
   });
 
+  weatherForecast = signal([]);
+
   submit() {
     let { city, number_of_days } = this.form.value;
     if (number_of_days) {
@@ -38,7 +40,8 @@ export class ForecastFormComponent {
         number_of_days
       ).subscribe({
         next: (response) => {
-          console.log(response);
+          this.weatherForecast.set(response.body);
+          console.log(this.weatherForecast());
         },
         error: (err) => {
           if (err.error.error.code === 1006) {
