@@ -1,11 +1,11 @@
 <form [formGroup]="form">
-    <label for="city">Wyszukaj miasto:</label>
-    <input type="text" id="city" placeholder="Twoje miasto..." formControlName="city">
-    <label for="number_of_days">Ilość dni prognozy:</label>
+    <label for="city">Search for a city:</label>
+    <input type="text" id="city" placeholder="Your city..." formControlName="city">
+    <label for="number_of_days">Number of forecast days:</label>
     <select name="number_of_days" id="number_of_days" formControlName="number_of_days">
-        <option value="3">3 dniowa</option>
-        <option value="7">7 dniowa</option>
-        <option value="10">10 dniowa</option>
+        <option value="3">3-day forecast</option>
+        <option value="7">7-day forecast</option>
+        <option value="10">10-day forecast</option>
     </select>
-    <button type="button" (click)="processWeatherForecastData()">Wyszukaj</button>
+    <button type="button" (click)="processWeatherForecastData()">Search</button>
 </form>
