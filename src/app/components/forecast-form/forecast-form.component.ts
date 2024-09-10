@@ -44,13 +44,9 @@ export class ForecastFormComponent {
     }
     if (city && number_of_days) {
       city = this.replacePolishChars(this.form.value.city!);
-      this.HomeComponentService.getForecastByCity(
-        city,
-        number_of_days
-      ).subscribe({
+      this.HomeComponentService.getForecastByCity(city, 1).subscribe({
         next: (response) => {
           this.ForecastService.updateForecast(response.body);
-          console.log(this.ForecastService.forecastData());
         },
         error: (err) => {
           if (err.error.error.code === 1006) {

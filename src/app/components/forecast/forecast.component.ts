@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, effect } from '@angular/core';
 import { ForecastService } from '../../../services/forecast/forecast.service';
+import { Forecast } from '../../../services/forecast/forecast.interface';
 
 @Component({
   selector: 'app-forecast',
@@ -9,5 +10,11 @@ import { ForecastService } from '../../../services/forecast/forecast.service';
   styleUrl: './forecast.component.css',
 })
 export class ForecastComponent {
-  constructor(private ForecastService: ForecastService) {}
+  constructor(private ForecastService: ForecastService) {
+    effect(() => {
+      this.forecast = this.ForecastService.forecastData();
+      console.log(this.forecast);
+    });
+  }
+  forecast: Forecast[] = [];
 }
