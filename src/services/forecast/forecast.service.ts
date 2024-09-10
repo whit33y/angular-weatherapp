@@ -5,9 +5,9 @@ import { Forecast } from './forecast.interface';
   providedIn: 'root',
 })
 export class ForecastService {
-  forecastData = signal<Forecast[]>([]);
+  forecastData = signal<Forecast | null>(null);
 
-  updateForecast(data: Forecast[]) {
+  updateForecast(data: Forecast) {
     this.forecastData.set(data);
   }
 }

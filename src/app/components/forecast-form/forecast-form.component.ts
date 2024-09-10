@@ -44,16 +44,19 @@ export class ForecastFormComponent {
     }
     if (city && number_of_days) {
       city = this.replacePolishChars(this.form.value.city!);
-      this.HomeComponentService.getForecastByCity(city, 1).subscribe({
+      this.HomeComponentService.getForecastByCity(
+        city,
+        number_of_days
+      ).subscribe({
         next: (response) => {
           this.ForecastService.updateForecast(response.body);
         },
         error: (err) => {
           if (err.error.error.code === 1006) {
             console.error(err);
-            this.errorMessage = 'Nie znaleziono Twojego miasta!';
+            this.errorMessage = 'We cannot find city you was looking for!';
           } else {
-            this.errorMessage = 'Wystąpił błąd, spróbuj ponownie.';
+            this.errorMessage = 'Error occurred, try again.';
           }
         },
         complete: () => {},

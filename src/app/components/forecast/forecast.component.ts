@@ -16,5 +16,5 @@ export class ForecastComponent {
       console.log(this.forecast);
     });
   }
-  forecast: Forecast[] = [];
+  forecast: Forecast | null = null;
 }

@@ -1,1 +1,8 @@
-<p>{{forecast}}</p>
+@if(forecast){
+<h1 class="text-xl">{{forecast.location.name}}-{{forecast.location.country}}</h1>
+@for(day of forecast.forecast.forecastday; track day.date){
+<p class="font-bold">Day: {{day.date }}</p>
+<p>Lowest temperature -{{day.day.mintemp_c}}</p>
+<p>Highest temperature -{{day.day.maxtemp_c}}</p>
+}
+}
