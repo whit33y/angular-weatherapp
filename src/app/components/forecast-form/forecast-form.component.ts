@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponentService } from '../../../services/home/home.component.service';
+import { ForecastService } from '../../../services/forecast/forecast.service';
 
 @Component({
   selector: 'app-forecast-form',
@@ -12,14 +13,15 @@ import { HomeComponentService } from '../../../services/home/home.component.serv
 export class ForecastFormComponent {
   formBuilder = inject(FormBuilder);
   errorMessage = '';
-  constructor(private HomeComponentService: HomeComponentService) {}
+  constructor(
+    private HomeComponentService: HomeComponentService,
+    private ForecastService: ForecastService
+  ) {}
 
   form = this.formBuilder.group({
     city: [''],
     number_of_days: [3],
   });
-
-  weatherForecast = signal([]);
 
   replacePolishChars(value: string): string {
     const polishChars = 'ąćęłńóśźżĄĆĘŁŃÓŚŹŻ';
@@ -47,8 +49,8 @@ export class ForecastFormComponent {
         number_of_days
       ).subscribe({
         next: (response) => {
-          this.weatherForecast.set(response.body);
-          console.log(this.weatherForecast());
+          this.ForecastService.updateForecast(response.body);
+          console.log(this.ForecastService.forecastData());
         },
         error: (err) => {
           if (err.error.error.code === 1006) {
