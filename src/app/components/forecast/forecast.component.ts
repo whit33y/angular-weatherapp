@@ -1,6 +1,7 @@
 import { Component, effect } from '@angular/core';
 import { ForecastService } from '../../../services/forecast/forecast.service';
 import { Forecast } from '../../../services/forecast/forecast.interface';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-forecast',
@@ -8,12 +9,27 @@ import { Forecast } from '../../../services/forecast/forecast.interface';
   imports: [],
   templateUrl: './forecast.component.html',
   styleUrl: './forecast.component.css',
+  providers: [DatePipe],
 })
 export class ForecastComponent {
-  constructor(private ForecastService: ForecastService) {
+  constructor(
+    private ForecastService: ForecastService,
+    private DatePipe: DatePipe
+  ) {
     effect(() => {
       this.forecast = this.ForecastService.forecastData();
+      if (this.forecast?.forecast) {
+        for (let i = 0; i < this.forecast.forecast.forecastday.length; i++) {
+          const forecastDay = this.forecast.forecast.forecastday[i];
+          const dateObj = new Date(forecastDay.date);
+          const dayOfWeek = this.DatePipe.transform(dateObj, 'EEEE');
+          if (dayOfWeek) {
+            this.forecast.forecast.forecastday[i].date = dayOfWeek;
+          }
+        }
+      }
     });
   }
+
   forecast: Forecast | null = null;
 }

@@ -46,7 +46,7 @@ export interface Forecast {
   };
   forecast: {
     forecastday: Array<{
-      date: string;
+      date: string | Date;
       date_epoch: number;
       day: {
         maxtemp_c: number;
