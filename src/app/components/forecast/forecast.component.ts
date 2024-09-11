@@ -1,13 +1,13 @@
 import { Component, effect } from '@angular/core';
 import { ForecastService } from '../../../services/forecast/forecast.service';
 import { Forecast } from '../../../services/forecast/forecast.interface';
-import { DatePipe } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @Component({
   selector: 'app-forecast',
   standalone: true,
-  imports: [ProgressSpinnerModule],
+  imports: [ProgressSpinnerModule, CommonModule],
   templateUrl: './forecast.component.html',
   styleUrl: './forecast.component.css',
   providers: [DatePipe],

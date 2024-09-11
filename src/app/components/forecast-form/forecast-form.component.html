@@ -1,11 +1,36 @@
-<form [formGroup]="form">
-    <label for="city">Search for a city:</label>
-    <input type="text" id="city" placeholder="Your city..." formControlName="city">
-    <label for="number_of_days">Number of forecast days:</label>
-    <select name="number_of_days" id="number_of_days" formControlName="number_of_days">
-        <option value="3">3-day forecast</option>
-        <option value="7">7-day forecast</option>
-        <option value="10">10-day forecast</option>
-    </select>
-    <button type="button" (click)="processWeatherForecastData()">Search</button>
-</form>
+<div class="flex justify-center">
+    <form [formGroup]="form" class="flex flex-row items-center w-1/2">
+        <div class="m-2">
+            <div>
+                <label for="city" class="text-sm">Search:</label>
+            </div>
+            <div>
+                <input type="text" id="city" placeholder="Your city..." formControlName="city"
+                    class="bg-gray-200 text-gray-700 border rounded-md h-6 w-34">
+            </div>
+        </div>
+        <div>
+            <div>
+                <label for="number_of_days" class="text-sm">Days:</label>
+            </div>
+            <div>
+                <select name="number_of_days" id="number_of_days" formControlName="number_of_days"
+                    class="bg-gray-200 text-gray-700 border rounded-md h-6 w-44">
+                    <option value="3">3-day forecast</option>
+                    <option value="7">7-day forecast</option>
+                    <option value="10">10-day forecast</option>
+                </select>
+            </div>
+        </div>
+        <div class="flex self-end">
+            <button type="button"
+                class="transition-all ease-in-out delay-100 flex bg-blue-600 text-white py-1 px-2 rounded-lg m-2 hover:opacity-75"
+                (click)="processWeatherForecastData()">Search<svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+            </button>
+        </div>
+    </form>
+</div>

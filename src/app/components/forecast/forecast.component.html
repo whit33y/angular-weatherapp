@@ -1,9 +1,7 @@
 <div class="flex flex-col">
-    @if(loading){
-    <div class="flex justify-center">
+    <div class="flex justify-center" *ngIf="loading">
         <p-progressSpinner ariaLabel="loading" />
     </div>
-    }@else{
     @if(forecast){
     <h1 class="flex justify-center text-xl font-bold text-center mb-0">{{forecast.forecast.forecastday.length}} day
         forecast
@@ -11,23 +9,22 @@
         {{forecast.location.name}}</h1>
     <h1 class="flex justify-center text-lg font-bold text-center mt-0  border-b-2">{{forecast.location.country}}</h1>
     @for(day of forecast.forecast.forecastday; track day.date){
-    <div class="flex justify-center border-b-2">
-        <p class="flex flex-row items-center text-md font-medium">{{day.date}}</p>
+    <div class="flex justify-center align-middle border-b-2">
+        <p class="flex flex-row items-center justify-center text-md font-medium w-20">{{day.date}}</p>
         <div>
             <img [src]="day.day.condition.icon" [alt]="day.day.condition.text">
         </div>
         <div>
             <div>
                 <p class="text-xs font-bold">Lowest</p>
-                <p>{{day.day.mintemp_c}}°C</p>
+                <p class="text-sm">{{day.day.mintemp_c}}°C</p>
             </div>
             <div>
                 <p class="text-xs font-bold">Highest</p>
-                <p>{{day.day.maxtemp_c}}°C</p>
+                <p class="text-sm">{{day.day.maxtemp_c}}°C</p>
             </div>
         </div>
     </div>
-    }
     }
     }
 </div>
