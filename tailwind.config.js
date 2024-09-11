@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'cloud-pattern': "url('/assets/images/clouds.jpg')",
+      }
+    },
   },
   plugins: [],
 }
