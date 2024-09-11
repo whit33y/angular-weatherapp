@@ -38,7 +38,7 @@ export class ForecastFormComponent {
 
   processWeatherForecastData() {
     let { city, number_of_days } = this.form.value;
-
+    this.ForecastService.updateLoading(true);
     if (number_of_days) {
       number_of_days = +number_of_days;
     }
@@ -59,7 +59,9 @@ export class ForecastFormComponent {
             this.errorMessage = 'Error occurred, try again.';
           }
         },
-        complete: () => {},
+        complete: () => {
+          this.ForecastService.updateLoading(false);
+        },
       });
     }
   }

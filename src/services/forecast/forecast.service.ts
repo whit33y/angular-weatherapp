@@ -10,4 +10,10 @@ export class ForecastService {
   updateForecast(data: Forecast) {
     this.forecastData.set(data);
   }
+
+  loading = signal<boolean>(false);
+
+  updateLoading(data: boolean) {
+    this.loading.set(data);
+  }
 }

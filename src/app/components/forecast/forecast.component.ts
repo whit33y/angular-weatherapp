@@ -2,11 +2,12 @@ import { Component, effect } from '@angular/core';
 import { ForecastService } from '../../../services/forecast/forecast.service';
 import { Forecast } from '../../../services/forecast/forecast.interface';
 import { DatePipe } from '@angular/common';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @Component({
   selector: 'app-forecast',
   standalone: true,
-  imports: [],
+  imports: [ProgressSpinnerModule],
   templateUrl: './forecast.component.html',
   styleUrl: './forecast.component.css',
   providers: [DatePipe],
@@ -18,6 +19,7 @@ export class ForecastComponent {
   ) {
     effect(() => {
       this.forecast = this.ForecastService.forecastData();
+      this.loading = this.ForecastService.loading();
       if (this.forecast?.forecast) {
         for (let i = 0; i < this.forecast.forecast.forecastday.length; i++) {
           const forecastDay = this.forecast.forecast.forecastday[i];
@@ -32,4 +34,5 @@ export class ForecastComponent {
   }
 
   forecast: Forecast | null = null;
+  loading: boolean = false;
 }
