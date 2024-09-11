@@ -13,7 +13,6 @@ export class ForecastComponent {
   constructor(private ForecastService: ForecastService) {
     effect(() => {
       this.forecast = this.ForecastService.forecastData();
-      console.log(this.forecast);
     });
   }
   forecast: Forecast | null = null;
