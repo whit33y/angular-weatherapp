@@ -1,12 +1,17 @@
-<div>
+<div class="h-full flex flex-col justify-between">
     <div>
-        <div class="flex justify-center items-center">
-            <img src="//cdn.weatherapi.com/weather/64x64/day/113.png" alt="Logo">
-            <h1 class="text-3xl">Angular Weather App</h1>
+        <div>
+            <div class="flex justify-center items-center">
+                <img src="//cdn.weatherapi.com/weather/64x64/day/113.png" alt="Logo">
+                <h1 class="text-3xl">Angular Weather App</h1>
+            </div>
+            <app-forecast-form></app-forecast-form>
         </div>
-        <app-forecast-form></app-forecast-form>
+        <div>
+            <app-forecast></app-forecast>
+        </div>
     </div>
     <div>
-        <app-forecast></app-forecast>
+        <app-footer></app-footer>
     </div>
 </div>

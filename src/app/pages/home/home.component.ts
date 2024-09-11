@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { ForecastFormComponent } from '../../components/forecast-components/forecast-form/forecast-form.component';
 import { ForecastComponent } from '../../components/forecast-components/forecast/forecast.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ForecastFormComponent, ForecastComponent],
+  imports: [ForecastFormComponent, ForecastComponent, FooterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
