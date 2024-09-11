@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ForecastFormComponent } from '../../components/forecast-form/forecast-form.component';
-import { ForecastComponent } from '../../components/forecast/forecast.component';
+import { ForecastFormComponent } from '../../components/forecast-components/forecast-form/forecast-form.component';
+import { ForecastComponent } from '../../components/forecast-components/forecast/forecast.component';
 @Component({
   selector: 'app-home',
   standalone: true,

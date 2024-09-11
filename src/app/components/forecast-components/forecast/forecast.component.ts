@@ -1,6 +1,6 @@
 import { Component, effect } from '@angular/core';
-import { ForecastService } from '../../../services/forecast/forecast.service';
-import { Forecast } from '../../../services/forecast/forecast.interface';
+import { ForecastService } from '../../../../services/forecast/forecast.service';
+import { Forecast } from '../../../../services/forecast/forecast.interface';
 import { CommonModule, DatePipe } from '@angular/common';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 

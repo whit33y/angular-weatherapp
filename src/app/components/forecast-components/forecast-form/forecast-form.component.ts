@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { HomeComponentService } from '../../../services/home/home.component.service';
-import { ForecastService } from '../../../services/forecast/forecast.service';
+import { HomeComponentService } from '../../../../services/home/home.component.service';
+import { ForecastService } from '../../../../services/forecast/forecast.service';
 
 @Component({
   selector: 'app-forecast-form',
