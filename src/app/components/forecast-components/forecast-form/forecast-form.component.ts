@@ -24,19 +24,6 @@ export class ForecastFormComponent {
     number_of_days: [3],
   });
 
-  replacePolishChars(value: string): string {
-    const polishChars = 'ąćęłńóśźżĄĆĘŁŃÓŚŹŻ';
-    const nonPolishChars = 'acelnoszzACELNOSZZ';
-
-    return value
-      .split('')
-      .map((char) => {
-        const index = polishChars.indexOf(char);
-        return index !== -1 ? nonPolishChars[index] : char;
-      })
-      .join('');
-  }
-
   processWeatherForecastData() {
     let { city, number_of_days } = this.form.value;
     this.ForecastService.updateLoading(true);
@@ -44,7 +31,7 @@ export class ForecastFormComponent {
       number_of_days = +number_of_days;
     }
 
-    city = this.replacePolishChars(this.form.value.city!);
+    city = this.ForecastService.replacePolishChars(this.form.value.city!);
     this.HomeComponentService.getForecastByCity(
       city,
       number_of_days!

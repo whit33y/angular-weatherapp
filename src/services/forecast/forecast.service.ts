@@ -16,4 +16,17 @@ export class ForecastService {
   updateLoading(data: boolean) {
     this.loading.set(data);
   }
+
+  replacePolishChars(value: string): string {
+    const polishChars = 'ąćęłńóśźżĄĆĘŁŃÓŚŹŻ';
+    const nonPolishChars = 'acelnoszzACELNOSZZ';
+
+    return value
+      .split('')
+      .map((char) => {
+        const index = polishChars.indexOf(char);
+        return index !== -1 ? nonPolishChars[index] : char;
+      })
+      .join('');
+  }
 }
