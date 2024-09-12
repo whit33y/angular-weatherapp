@@ -8,7 +8,7 @@
         for
         {{forecast.location.name}}</h1>
     <h1 class="flex justify-center text-lg font-bold text-center mt-0  border-b-2">{{forecast.location.country}}</h1>
-    @for(day of forecast.forecast.forecastday; track day.date){
+    @for(day of forecast.forecast.forecastday; track $index){
     <div class="flex justify-center align-middle border-b-2 bg-white bg-opacity-30">
         <div class="flex flex-col items-center justify-center w-36">
             <p class="text-md font-medium">
@@ -28,12 +28,21 @@
                 <p class="text-sm">{{day.day.maxtemp_c}}°C</p>
             </div>
         </div>
-        <div class="flex items-center cursor-pointer">
+        @if(!forecastEdit[$index]){
+        <div class="flex items-center cursor-pointer" (click)="changeEditStatus($index)">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
             </svg>
         </div>
+        }@else {
+        <div class="flex items-center cursor-pointer" (click)="changeEditStatus($index)">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+            </svg>
+        </div>
+        }
     </div>
     }
     }

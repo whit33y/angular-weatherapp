@@ -30,9 +30,26 @@ export class ForecastComponent {
           }
         }
       }
+      if (this.forecast?.forecast.forecastday.length) {
+        for (let i = 0; i < this.forecast?.forecast.forecastday.length; i++) {
+          if (this.forecast.forecast.forecastday[i]) {
+            this.forecastEdit?.push(false);
+          }
+        }
+      }
     });
   }
 
+  changeEditStatus(index: number) {
+    for (let i = 0; i < this.forecastEdit.length; i++) {
+      if (i !== index) {
+        this.forecastEdit[i] = false;
+      }
+    }
+    this.forecastEdit[index] = !this.forecastEdit[index];
+  }
+
+  forecastEdit: boolean[] = [];
   forecast: Forecast | null = null;
   loading: boolean = false;
 }
