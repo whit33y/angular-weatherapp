@@ -44,6 +44,9 @@
         </div>
         }
     </div>
+    @if(forecastEdit[$index]){
+    <app-forecast-more [forecast]="forecast.forecast.forecastday[$index]" />
+    }
     }
     }
 </div>
