@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ForecastDay } from '../../../../../services/forecast/forecast.interface';
+import { ForecastDay } from '../../../../services/forecast/forecast.interface';
 
 @Component({
   selector: 'app-forecast-more',

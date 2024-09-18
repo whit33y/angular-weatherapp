@@ -3,7 +3,7 @@ import { ForecastService } from '../../../../services/forecast/forecast.service'
 import { Forecast } from '../../../../services/forecast/forecast.interface';
 import { CommonModule, DatePipe } from '@angular/common';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { ForecastMoreComponent } from '../forecast-components/forecast-more/forecast-more.component';
+import { ForecastMoreComponent } from '../forecast-more/forecast-more.component';
 
 @Component({
   selector: 'app-forecast',
