@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'cloud-pattern': "url('/assets/images/clouds.jpg')",
+        'moon-pattern': "url('/assets/images/night.jpg')"
       }
     },
   },
