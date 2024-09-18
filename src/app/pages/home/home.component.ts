@@ -4,10 +4,17 @@ import { ForecastComponent } from '../../components/forecast-components/forecast
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ForecastService } from '../../../services/forecast/forecast.service';
 import { Forecast } from '../../../services/forecast/forecast.interface';
+import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ForecastFormComponent, ForecastComponent, FooterComponent],
+  imports: [
+    ForecastFormComponent,
+    ForecastComponent,
+    FooterComponent,
+    CommonModule,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
