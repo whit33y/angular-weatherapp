@@ -30,7 +30,6 @@ export class ForecastFormComponent {
     if (number_of_days) {
       number_of_days = +number_of_days;
     }
-
     city = this.ForecastService.replacePolishChars(this.form.value.city!);
     this.HomeComponentService.getForecastByCity(
       city,

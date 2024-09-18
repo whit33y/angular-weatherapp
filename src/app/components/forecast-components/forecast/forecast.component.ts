@@ -21,6 +21,7 @@ export class ForecastComponent {
     effect(() => {
       this.forecast = this.ForecastService.forecastData();
       this.loading = this.ForecastService.loading();
+      this.forecastEdit = [];
       if (this.forecast?.forecast) {
         for (let i = 0; i < this.forecast.forecast.forecastday.length; i++) {
           const forecastDay = this.forecast.forecast.forecastday[i];
@@ -29,10 +30,6 @@ export class ForecastComponent {
           if (dayOfWeek) {
             this.forecast.forecast.forecastday[i].date = dayOfWeek;
           }
-        }
-      }
-      if (this.forecast?.forecast.forecastday.length) {
-        for (let i = 0; i < this.forecast?.forecast.forecastday.length; i++) {
           if (this.forecast.forecast.forecastday[i]) {
             this.forecastEdit?.push(false);
           }
