@@ -11,9 +11,7 @@ import { DatePipe } from '@angular/common';
 })
 export class ForecastByHourComponent {
   @Input() forecast!: ForecastDay;
-  ngOnInit(): void {
-    console.log(this.forecast, this.formattedDate);
-  }
+  ngOnInit(): void {}
 
   formattedDate: string | null = '';
   constructor(private datePipe: DatePipe) {
