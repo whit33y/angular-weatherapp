@@ -1,1 +1,10 @@
-<p>forecast-by-hour works!</p>
+<div class="flex flex-row bg-white bg-opacity-30 overflow-x-scroll whitespace-nowrap pt-2 scrollbar-small"> @for (day of
+    forecast.hour; track $index) {
+    <div class="flex flex-col items-center mx-4 w-12">
+        <p class="text-sm">{{ formatTime(day.time) }}</p>
+        <img [src]="day.condition.icon" [alt]="day.condition.text" class="image">
+        <p class="text-sm">{{day.temp_c}}°C</p>
+        <p class="text-sm">{{day.chance_of_rain}}%</p>
+    </div>
+    }
+</div>

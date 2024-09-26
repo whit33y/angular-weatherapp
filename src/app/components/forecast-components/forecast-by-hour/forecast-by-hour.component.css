@@ -1,0 +1,9 @@
+.image {
+  width: 36px;
+  height: 36px;
+}
+
+.scrollbar-small {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.1);
+}
