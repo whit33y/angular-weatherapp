@@ -1,5 +1,5 @@
-<div class="flex flex-col justify-between bg-cloud-pattern bg-cover bg-center h-screen bg-repeat-y"
-    [ngClass]="{'bg-moon-pattern bg-repeat-y': forecast?.current?.is_day === 0, 'bg-cloud-pattern bg-repeat-y':  forecast?.current?.is_day === 1 || !forecast}">
+<div class="flex flex-col justify-between bg-repeat bg-cloud-pattern bg-cover bg-center min-h-screen"
+    [ngClass]="{'bg-repeat bg-moon-pattern': forecast?.current?.is_day === 0, 'bg-repeat bg-cloud-pattern':  forecast?.current?.is_day === 1 || !forecast}">
     <div>
         <div>
             <div class="flex justify-center items-center">
