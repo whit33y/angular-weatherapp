@@ -1,10 +1,19 @@
-<div class="flex flex-row bg-white bg-opacity-30 overflow-x-scroll whitespace-nowrap pt-2 scrollbar-small"> @for (day of
-    forecast.hour; track $index) {
-    <div class="flex flex-col items-center mx-4 w-12">
+<div class="flex flex-row bg-white bg-opacity-30 overflow-x-scroll whitespace-nowrap pt-2 scrollbar-small">
+    @for (day of forecast.hour; track $index) {
+    @if(day.time === formattedDate){
+    <div class="flex flex-col items-center mx-4 px-2 w-16 bg-white bg-opacity-40">
         <p class="text-sm">{{ formatTime(day.time) }}</p>
         <img [src]="day.condition.icon" [alt]="day.condition.text" class="image">
         <p class="text-sm">{{day.temp_c}}°C</p>
         <p class="text-sm">{{day.chance_of_rain}}%</p>
     </div>
+    }@else{
+    <div class="flex flex-col items-center mx-4 px-2 w-16">
+        <p class="text-sm">{{ formatTime(day.time) }}</p>
+        <img [src]="day.condition.icon" [alt]="day.condition.text" class="image">
+        <p class="text-sm">{{day.temp_c}}°C</p>
+        <p class="text-sm">{{day.chance_of_rain}}%</p>
+    </div>
+    }
     }
 </div>

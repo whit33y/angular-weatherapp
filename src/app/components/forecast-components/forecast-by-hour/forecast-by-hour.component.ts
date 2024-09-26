@@ -12,10 +12,14 @@ import { DatePipe } from '@angular/common';
 export class ForecastByHourComponent {
   @Input() forecast!: ForecastDay;
   ngOnInit(): void {
-    console.log(this.forecast);
+    console.log(this.forecast, this.formattedDate);
   }
 
-  constructor(private datePipe: DatePipe) {}
+  formattedDate: string | null = '';
+  constructor(private datePipe: DatePipe) {
+    const now = new Date();
+    this.formattedDate = this.datePipe.transform(now, `yyyy-MM-dd HH:00`);
+  }
 
   formatTime(dateTime: string): string | null {
     return this.datePipe.transform(dateTime, 'HH:mm');
