@@ -23,3 +23,10 @@ To start a project `npm start`. Than navigate to `http://localhost:4200/`. The a
 - Prettier for code formatting
 
 ## Screenshots from application
+![Web](https://github.com/user-attachments/assets/dcc3e0d8-953d-4594-aa4b-bbd91b5f7696)
+![Web](https://github.com/user-attachments/assets/adcf1975-0578-4f49-ba91-c500d9eaa9cf)
+![Phone](https://github.com/user-attachments/assets/a9ce3b54-7d58-4162-93c2-d5e9f6ec2e15)
+![Phone](https://github.com/user-attachments/assets/96a0ab2b-7371-48c1-b2a2-6a9df91d2e3e)
+
+## Contact
+Feel free to contact me via github or email `troppout@gmail.com`!
